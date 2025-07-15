@@ -1,0 +1,1925 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="MyITCompany Website | Empowering Your Business with Cutting-Edge IT Solutions">
+    <title>MyITCompany Website</title>
+    
+    <!-- Preload important resources -->
+    <link rel="preload" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" as="style">
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" as="style">
+    <link rel="preload" href="https://code.jquery.com/jquery-3.5.1.slim.min.js" as="script">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+    
+    <style>
+        /* Global Styles */
+
+       
+
+
+        :root {
+            --primary-color: #4A235A;
+            --secondary-color: #D04A37;
+            --accent-color: #FFC107;
+            --dark-bg: #212529;
+            --light-text: #ffffff;
+            --dark-text: #343a40;
+        }
+        
+        body {
+            background: linear-gradient(270deg, var(--primary-color), var(--secondary-color), var(--primary-color));
+            background-size: 200% 200%;
+            animation: gradient-move 15s ease infinite;
+            color: var(--light-text);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+        
+        @keyframes gradient-move {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        /* Navbar */
+        .bg-navbar-gradient {
+            background: linear-gradient(to right, #343A40, var(--dark-bg));
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+        }
+        
+        .navbar.scrolled {
+            background: rgba(33, 37, 41, 0.95);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(10px);
+        }
+        
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .navbar-brand img {
+            height: 40px;
+            margin-right: 10px;
+        }
+        
+        .nav-link {
+            position: relative;
+            padding: 8px 15px;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 15px;
+            width: 0;
+            height: 2px;
+            background-color: var(--accent-color);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link.active,
+        .nav-link:hover {
+            color: var(--accent-color);
+        }
+        
+        .nav-link.active::after,
+        .nav-link:hover::after {
+            width: calc(100% - 30px);
+        }
+
+        .theme-switch-wrapper {
+            display: flex;
+            align-items: center;
+        }
+
+        .theme-switch {
+            display: inline-block;
+            height: 34px;
+            position: relative;
+            width: 60px;
+        }
+
+        .theme-switch input { display: none; }
+
+        .slider {
+            background-color: #ccc;
+            bottom: 0;
+            cursor: pointer;
+            left: 0;
+            position: absolute;
+            right: 0;
+            top: 0;
+            transition: .4s;
+        }
+
+        .slider:before {
+            background-color: #fff;
+            bottom: 4px;
+            content: "";
+            height: 26px;
+            left: 4px;
+            position: absolute;
+            transition: .4s;
+            width: 26px;
+        }
+
+        input:checked + .slider {
+            background-color: var(--accent-color);
+        }
+
+        input:checked + .slider:before {
+            transform: translateX(26px);
+        }
+
+        .slider.round {
+            border-radius: 34px;
+        }
+
+        .slider.round:before {
+            border-radius: 50%;
+        }
+
+        .light-mode {
+            --primary-color: #F0F2F5;
+            --secondary-color: #FFFFFF;
+            --accent-color: #D04A37;
+            --dark-bg: #FFFFFF;
+            --light-text: #343a40;
+            --dark-text: #ffffff;
+        }
+        
+        /* Holographic Card Styles - Enhanced */
+        .holographic-card {
+            position: relative;
+            background-color: rgba(51, 51, 51, 0.8);
+            overflow: hidden;
+            color: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transform: translateY(0);
+            cursor: pointer;
+        }
+        
+        .holographic-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.3);
+        }
+        
+        .holographic-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(
+                to bottom right,
+                rgba(74, 35, 90, 0.1) 0%,
+                rgba(74, 35, 90, 0.3) 20%,
+                rgba(208, 74, 55, 0.4) 50%,
+                rgba(74, 35, 90, 0.3) 80%,
+                rgba(74, 35, 90, 0.1) 100%
+            );
+            transform: rotate(30deg);
+            animation: shine 6s linear infinite;
+            opacity: 0.6;
+        }
+        
+        @keyframes shine {
+            0% { transform: translateX(-100%) rotate(30deg); }
+            100% { transform: translateX(100%) rotate(30deg); }
+        }
+        
+        /* Sections */
+        section {
+            padding: 5rem 0;
+            position: relative;
+        }
+        
+        section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, rgba(255,255,255,0.03) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        
+        .section-title {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 2rem;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 50%;
+            height: 3px;
+            background: var(--accent-color);
+            border-radius: 3px;
+        }
+        
+        /* Hero Section - Enhanced */
+        #hero {
+            height: 100vh;
+            min-height: 600px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            padding-top: 70px;
+        }
+        
+        #hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, rgba(255,255,255,0.05) 0%, transparent 70%);
+            animation: pulse 8s ease-in-out infinite alternate;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(0.95); opacity: 0.3; }
+            100% { transform: scale(1.1); opacity: 0.1; }
+        }
+        
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+        
+        .hero-subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .hero-scroll-down {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            font-size: 1.5rem;
+            animation: bounce 2s infinite;
+            cursor: pointer;
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0) translateX(-50%); }
+            40% { transform: translateY(-20px) translateX(-50%); }
+            60% { transform: translateY(-10px) translateX(-50%); }
+        }
+        
+        /* Buttons */
+        .btn-warning {
+            background-color: var(--accent-color);
+            border-color: var(--accent-color);
+            color: #212529;
+            font-weight: 600;
+            padding: 0.75rem 2rem;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn-warning:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(255, 193, 7, 0.3);
+            background-color: #ffca28;
+            border-color: #ffca28;
+        }
+        
+        .btn-warning::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to right, transparent 0%, rgba(255,255,255,0.3) 50%, transparent 100%);
+            transform: translateX(-100%);
+            transition: transform 0.6s ease;
+        }
+        
+        .btn-warning:hover::after {
+            transform: translateX(100%);
+        }
+        
+        .btn-outline-light {
+            border-width: 2px;
+            font-weight: 600;
+            padding: 0.75rem 2rem;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-outline-light:hover {
+            background-color: rgba(255,255,255,0.1);
+            transform: translateY(-3px);
+        }
+        
+        /* Tech Icons */
+        .tech-icon {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            color: var(--accent-color);
+            transition: all 0.3s ease;
+        }
+        
+        .tech-icon-container:hover .tech-icon {
+            transform: scale(1.2) rotate(10deg);
+            filter: drop-shadow(0 0 10px rgba(255, 193, 7, 0.5));
+        }
+        
+        /* Statistics */
+        .stat-number {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: var(--accent-color);
+            line-height: 1;
+            margin-bottom: 0.5rem;
+        }
+        
+        .stat-label {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            letter-spacing: 1px;
+        }
+        
+        /* Floating Animation */
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+        
+        @keyframes floating {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        /* Scroll Reveal Animation */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+        
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Testimonials */
+        .testimonial-card {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 30px;
+            margin: 15px;
+            transition: all 0.3s ease;
+        }
+        
+        .testimonial-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+        
+        .testimonial-img {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--accent-color);
+            margin-bottom: 15px;
+        }
+        
+        .testimonial-rating {
+            color: var(--accent-color);
+            margin-bottom: 15px;
+        }
+        
+        /* Clients Section */
+        .client-logo {
+            height: 60px;
+            filter: grayscale(100%) brightness(2);
+            opacity: 0.7;
+            transition: all 0.3s ease;
+        }
+        
+        .client-logo:hover {
+            filter: grayscale(0) brightness(1);
+            opacity: 1;
+            transform: scale(1.1);
+        }
+        
+        /* Pricing Section */
+        .pricing-card {
+            border: none;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            overflow: hidden;
+            background: rgba(51, 51, 51, 0.8);
+            color: white;
+        }
+        
+        .pricing-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        .pricing-header {
+            background: rgba(74, 35, 90, 0.5);
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .pricing-title {
+            font-size: 1.5rem;
+            margin-bottom: 0;
+        }
+        
+        .pricing-price {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--accent-color);
+            margin: 15px 0;
+        }
+        
+        .pricing-period {
+            font-size: 1rem;
+            opacity: 0.8;
+        }
+        
+        .pricing-features {
+            padding: 20px;
+        }
+        
+        .pricing-features li {
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .pricing-features li:last-child {
+            border-bottom: none;
+        }
+        
+        /* FAQ Section */
+        .faq-card {
+            background: rgba(51, 51, 51, 0.8);
+            border-radius: 8px;
+            margin-bottom: 15px;
+            overflow: hidden;
+        }
+        
+        .faq-header {
+            padding: 15px 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+        
+        .faq-header:hover {
+            background: rgba(74, 35, 90, 0.3);
+        }
+        
+        .faq-header h5 {
+            margin-bottom: 0;
+        }
+        
+        .faq-body {
+            padding: 0 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .faq-card.active .faq-body {
+            padding: 0 20px 20px;
+            max-height: 500px;
+        }
+        
+        .faq-toggle {
+            transition: all 0.3s ease;
+        }
+        
+        .faq-card.active .faq-toggle {
+            transform: rotate(180deg);
+        }
+        
+        /* Blog Section */
+        .blog-card {
+            background: rgba(51, 51, 51, 0.8);
+            border-radius: 10px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            margin-bottom: 30px;
+        }
+        
+        .blog-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        .blog-img {
+            height: 200px;
+            object-fit: cover;
+            width: 100%;
+        }
+        
+        .blog-content {
+            padding: 20px;
+        }
+        
+        .blog-date {
+            font-size: 0.9rem;
+            color: var(--accent-color);
+            margin-bottom: 10px;
+        }
+        
+        .blog-title {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+        }
+        
+        .blog-excerpt {
+            margin-bottom: 15px;
+            opacity: 0.9;
+        }
+        
+        /* Contact Form */
+        .form-control {
+            background-color: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: white;
+            transition: all 0.3s ease;
+        }
+        
+        .form-control:focus {
+            background-color: rgba(255, 255, 255, 0.2);
+            border-color: var(--accent-color);
+            box-shadow: 0 0 0 0.2rem rgba(255, 193, 7, 0.25);
+            color: white;
+        }
+        
+        .form-control::placeholder {
+            color: rgba(255, 255, 255, 0.6);
+        }
+        
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: var(--accent-color);
+            color: var(--dark-text);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 999;
+        }
+        
+        .back-to-top.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .back-to-top:hover {
+            transform: translateY(-3px);
+            background: #ffca28;
+        }
+        
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+            
+            section {
+                padding: 3rem 0;
+            }
+            
+            .navbar-brand img {
+                height: 30px;
+            }
+            
+            .section-title::after {
+                width: 30%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-navbar-gradient fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="https://via.placeholder.com/40x40" alt="MyITCompany Logo">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#hero">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About Us</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#services" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Services
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="#services">Web Development</a>
+                            <a class="dropdown-item" href="#services">Cloud Solutions</a>
+                            <a class="dropdown-item" href="#services">Mobile Apps</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#portfolio">Portfolio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#team">Team</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#testimonials">Testimonials</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                    <li class="nav-item ml-3">
+                        <a href="#" class="btn btn-outline-light mr-2" style="width:150px;">Sign in</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#contact" class="btn btn-warning" style="width:160px;">Get Started</a>
+                    </li>
+                    <li class="nav-item ml-3">
+                        <div class="theme-switch-wrapper">
+                            <label class="theme-switch" for="checkbox">
+                                <input type="checkbox" id="checkbox" />
+                                <div class="slider round"></div>
+                            </label>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero" class="d-flex align-items-center">
+        <div class="container text-center">
+            <h1 class="hero-title animate__animated animate__fadeInDown">Empowering Your Business with Cutting-Edge IT Solutions</h1>
+            <p class="hero-subtitle animate__animated animate__fadeIn animate__delay-1s">We deliver innovative technology solutions tailored to your business needs, helping you stay ahead in the digital landscape.</p>
+            <div class="mt-4 animate__animated animate__fadeInUp animate__delay-2s">
+                <a href="#contact" class="btn btn-lg btn-warning mr-3">Get Started</a>
+                <a href="#services" class="btn btn-lg btn-outline-light">Our Services</a>
+            </div>
+        </div>
+        <a href="#about" class="hero-scroll-down">
+            <i class="fas fa-chevron-down"></i>
+        </a>
+    </section>
+
+    <!-- Clients Section -->
+    <section id="clients" class="py-4 bg-dark">
+        <div class="container">
+            <div class="owl-carousel owl-theme client-carousel">
+                <div class="item text-center">
+                    <img src="https://via.placeholder.com/150x60?text=Client+1" alt="Client 1" class="client-logo img-fluid">
+                </div>
+                <div class="item text-center">
+                    <img src="https://via.placeholder.com/150x60?text=Client+2" alt="Client 2" class="client-logo img-fluid">
+                </div>
+                <div class="item text-center">
+                    <img src="https://via.placeholder.com/150x60?text=Client+3" alt="Client 3" class="client-logo img-fluid">
+                </div>
+                <div class="item text-center">
+                    <img src="https://via.placeholder.com/150x60?text=Client+4" alt="Client 4" class="client-logo img-fluid">
+                </div>
+                <div class="item text-center">
+                    <img src="https://via.placeholder.com/150x60?text=Client+5" alt="Client 5" class="client-logo img-fluid">
+                </div>
+                <div class="item text-center">
+                    <img src="https://via.placeholder.com/150x60?text=Client+6" alt="Client 6" class="client-logo img-fluid">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section id="about" class="bg-dark">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-4 mb-lg-0 reveal">
+                    <h2 class="section-title">About Us</h2>
+                    <p class="lead">MyITCompany is a leading provider of innovative IT solutions, dedicated to helping businesses thrive in the digital age.</p>
+                    <p>Founded in 2015, we've grown from a small startup to a trusted partner for businesses across multiple industries. Our team of experts specializes in web development, cloud solutions, and mobile applications, delivering tailored services to meet your unique needs.</p>
+                    <div class="row mt-4">
+                        <div class="col-6">
+                            <div class="d-flex align-items-center mb-3">
+                                <i class="fas fa-check-circle text-accent mr-2"></i>
+                                <span>10+ Years Experience</span>
+                            </div>
+                            <div class="d-flex align-items-center mb-3">
+                                <i class="fas fa-check-circle text-accent mr-2"></i>
+                                <span>Certified Professionals</span>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="d-flex align-items-center mb-3">
+                                <i class="fas fa-check-circle text-accent mr-2"></i>
+                                <span>150+ Happy Clients</span>
+                            </div>
+                            <div class="d-flex align-items-center mb-3">
+                                <i class="fas fa-check-circle text-accent mr-2"></i>
+                                <span>24/7 Support</span>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="#team" class="btn btn-warning mt-3">Meet Our Team</a>
+                </div>
+                <div class="col-lg-6 reveal">
+                    <div class="holographic-card p-4 floating" style="animation-delay: 0.5s;">
+                        <img src="https://images.pexels.com/photos/3184296/pexels-photo-3184296.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" class="img-fluid rounded" alt="About Us">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services">
+        <div class="container">
+            <div class="text-center mb-5 reveal">
+                <h2 class="section-title">Our Services</h2>
+                <p class="lead">Comprehensive solutions tailored to your business needs</p>
+            </div>
+            
+            <div class="row">
+                <div class="col-md-4 mb-4 reveal">
+                    <div class="holographic-card h-100 text-center">
+                        <i class="fas fa-code tech-icon mb-3"></i>
+                        <h3>Web Development</h3>
+                        <p>Building responsive and scalable websites tailored to your business needs with modern frameworks like React, Angular, and Vue.js.</p>
+                        <ul class="text-left pl-3">
+                            <li>Custom Web Applications</li>
+                            <li>E-Commerce Solutions</li>
+                            <li>CMS Development</li>
+                            <li>API Integration</li>
+                        </ul>
+                        <a href="#portfolio" class="btn btn-sm btn-outline-light mt-3">View Projects</a>
+                    </div>
+                </div>
+                
+                <div class="col-md-4 mb-4 reveal">
+                    <div class="holographic-card h-100 text-center">
+                        <i class="fas fa-cloud tech-icon mb-3"></i>
+                        <h3>Cloud Solutions</h3>
+                        <p>Seamless cloud migration and management with AWS, Azure, and Google Cloud. Optimize your infrastructure for performance and cost.</p>
+                        <ul class="text-left pl-3">
+                            <li>Cloud Migration</li>
+                            <li>Serverless Architecture</li>
+                            <li>DevOps Implementation</li>
+                            <li>Cloud Security</li>
+                        </ul>
+                        <a href="#portfolio" class="btn btn-sm btn-outline-light mt-3">View Projects</a>
+                    </div>
+                </div>
+                
+                <div class="col-md-4 mb-4 reveal">
+                    <div class="holographic-card h-100 text-center">
+                        <i class="fas fa-mobile-alt tech-icon mb-3"></i>
+                        <h3>Mobile Apps</h3>
+                        <p>Cross-platform mobile applications for iOS and Android using Flutter and React Native. Beautiful, performant, and scalable.</p>
+                        <ul class="text-left pl-3">
+                            <li>iOS & Android Apps</li>
+                            <li>Hybrid Applications</li>
+                            <li>App Redesign</li>
+                            <li>App Maintenance</li>
+                        </ul>
+                        <a href="#portfolio" class="btn btn-sm btn-outline-light mt-3">View Projects</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row mt-4">
+                <div class="col-md-4 mb-4 reveal">
+                    <div class="holographic-card h-100 text-center">
+                        <i class="fas fa-chart-line tech-icon mb-3"></i>
+                        <h3>Digital Marketing</h3>
+                        <p>Comprehensive digital marketing strategies to boost your online presence and drive targeted traffic to your business.</p>
+                        <ul class="text-left pl-3">
+                            <li>SEO Optimization</li>
+                            <li>Social Media Marketing</li>
+                            <li>PPC Campaigns</li>
+                            <li>Content Marketing</li>
+                        </ul>
+                        <a href="#portfolio" class="btn btn-sm btn-outline-light mt-3">Learn More</a>
+                    </div>
+                </div>
+                
+                <div class="col-md-4 mb-4 reveal">
+                    <div class="holographic-card h-100 text-center">
+                        <i class="fas fa-shield-alt tech-icon mb-3"></i>
+                        <h3>Cyber Security</h3>
+                        <p>Protect your business from digital threats with our comprehensive security solutions and best practices.</p>
+                        <ul class="text-left pl-3">
+                            <li>Security Audits</li>
+                            <li>Penetration Testing</li>
+                            <li>Data Protection</li>
+                            <li>Compliance</li>
+                        </ul>
+                        <a href="#portfolio" class="btn btn-sm btn-outline-light mt-3">Learn More</a>
+                    </div>
+                </div>
+                
+                <div class="col-md-4 mb-4 reveal">
+                    <div class="holographic-card h-100 text-center">
+                        <i class="fas fa-robot tech-icon mb-3"></i>
+                        <h3>AI Solutions</h3>
+                        <p>Leverage artificial intelligence to automate processes, gain insights, and enhance customer experiences.</p>
+                        <ul class="text-left pl-3">
+                            <li>Machine Learning</li>
+                            <li>Chatbots</li>
+                            <li>Predictive Analytics</li>
+                            <li>Computer Vision</li>
+                        </ul>
+                        <a href="#portfolio" class="btn btn-sm btn-outline-light mt-3">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technology Stack Section -->
+    <section id="tech-stack" class="bg-dark">
+        <div class="container">
+            <div class="text-center mb-5 reveal">
+                <h2 class="section-title">Our Technology Stack</h2>
+                <p class="lead">We work with the best tools to deliver outstanding results</p>
+            </div>
+            
+            <div class="row text-center">
+                <div class="col-6 col-md-2 mb-4 reveal">
+                    <div class="tech-icon-container">
+                        <div class="holographic-card py-4">
+                            <i class="fab fa-react tech-icon"></i>
+                            <p>React</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-6 col-md-2 mb-4 reveal">
+                    <div class="tech-icon-container">
+                        <div class="holographic-card py-4">
+                            <i class="fab fa-node-js tech-icon"></i>
+                            <p>Node.js</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-6 col-md-2 mb-4 reveal">
+                    <div class="tech-icon-container">
+                        <div class="holographic-card py-4">
+                            <i class="fab fa-aws tech-icon"></i>
+                            <p>AWS</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-6 col-md-2 mb-4 reveal">
+                    <div class="tech-icon-container">
+                        <div class="holographic-card py-4">
+                            <i class="fab fa-microsoft tech-icon"></i>
+                            <p>Azure</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-6 col-md-2 mb-4 reveal">
+                    <div class="tech-icon-container">
+                        <div class="holographic-card py-4">
+                            <i class="fab fa-google tech-icon"></i>
+                            <p>Google Cloud</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-6 col-md-2 mb-4 reveal">
+                    <div class="tech-icon-container">
+                        <div class="holographic-card py-4">
+                            <i class="fab fa-android tech-icon"></i>
+                            <p>Flutter</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-6 col-md-2 mb-4 reveal">
+                    <div class="tech-icon-container">
+                        <div class="holographic-card py-4">
+                            <i class="fab fa-python tech-icon"></i>
+                            <p>Python</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-6 col-md-2 mb-4 reveal">
+                    <div class="tech-icon-container">
+                        <div class="holographic-card py-4">
+                            <i class="fab fa-js tech-icon"></i>
+                            <p>JavaScript</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-6 col-md-2 mb-4 reveal">
+                    <div class="tech-icon-container">
+                        <div class="holographic-card py-4">
+                            <i class="fab fa-docker tech-icon"></i>
+                            <p>Docker</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-6 col-md-2 mb-4 reveal">
+                    <div class="tech-icon-container">
+                        <div class="holographic-card py-4">
+                            <i class="fas fa-database tech-icon"></i>
+                            <p>MongoDB</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-6 col-md-2 mb-4 reveal">
+                    <div class="tech-icon-container">
+                        <div class="holographic-card py-4">
+                            <i class="fas fa-database tech-icon"></i>
+                            <p>PostgreSQL</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-6 col-md-2 mb-4 reveal">
+                    <div class="tech-icon-container">
+                        <div class="holographic-card py-4">
+                            <i class="fab fa-git-alt tech-icon"></i>
+                            <p>Git</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How We Work Section -->
+    <section id="process">
+        <div class="container">
+            <div class="text-center mb-5 reveal">
+                <h2 class="section-title">Our Process</h2>
+                <p class="lead">A structured approach to delivering exceptional results</p>
+            </div>
+            
+            <div class="row">
+                <div class="col-lg-10 mx-auto">
+                    <div class="row">
+                        <div class="col-md-3 mb-4 reveal">
+                            <div class="holographic-card text-center h-100">
+                                <div class="process-number">1</div>
+                                <i class="fas fa-lightbulb tech-icon mb-3"></i>
+                                <h4>Discovery</h4>
+                                <p>We analyze your requirements and business objectives to create a tailored solution.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-3 mb-4 reveal">
+                            <div class="holographic-card text-center h-100">
+                                <div class="process-number">2</div>
+                                <i class="fas fa-pencil-ruler tech-icon mb-3"></i>
+                                <h4>Planning</h4>
+                                <p>We design a detailed roadmap with milestones and deliverables.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-3 mb-4 reveal">
+                            <div class="holographic-card text-center h-100">
+                                <div class="process-number">3</div>
+                                <i class="fas fa-code tech-icon mb-3"></i>
+                                <h4>Development</h4>
+                                <p>Our team implements the solution with agile methodologies.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-3 mb-4 reveal">
+                            <div class="holographic-card text-center h-100">
+                                <div class="process-number">4</div>
+                                <i class="fas fa-rocket tech-icon mb-3"></i>
+                                <h4>Delivery</h4>
+                                <p>We deploy the solution and provide ongoing support.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="bg-dark">
+        <div class="container">
+            <div class="text-center mb-5 reveal">
+                <h2 class="section-title">Our Portfolio</h2>
+                <p class="lead">See some of our recent work</p>
+                <div id="portfolio-filters">
+                    <button class="btn btn-outline-light active" data-filter="*">All</button>
+                    <button class="btn btn-outline-light" data-filter=".e-commerce">E-Commerce</button>
+                    <button class="btn btn-outline-light" data-filter=".cloud">Cloud</button>
+                    <button class="btn btn-outline-light" data-filter=".mobile">Mobile</button>
+                </div>
+            </div>
+            
+            <div class="row portfolio-container">
+                <div class="col-md-4 mb-4 reveal portfolio-item e-commerce">
+                    <div class="holographic-card">
+                        <img src="https://images.pexels.com/photos/3184297/pexels-photo-3184297.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" class="img-fluid mb-3 rounded" alt="E-Commerce Platform">
+                        <div class="portfolio-tags">
+                            <span class="badge badge-warning mr-2">E-Commerce</span>
+                            <span class="badge badge-info">React</span>
+                        </div>
+                        <h3 class="mt-3">E-Commerce Platform</h3>
+                        <p>A responsive e-commerce website built with React and Node.js that increased client sales by 150%.</p>
+                        <p><strong>Technologies:</strong> React, Node.js, MongoDB</p>
+                        <a href="#" class="btn btn-warning btn-sm">View Case Study</a>
+                    </div>
+                </div>
+                
+                <div class="col-md-4 mb-4 reveal portfolio-item cloud">
+                    <div class="holographic-card">
+                        <img src="https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" class="img-fluid mb-3 rounded" alt="Cloud Migration">
+                        <div class="portfolio-tags">
+                            <span class="badge badge-warning mr-2">Cloud</span>
+                            <span class="badge badge-info">AWS</span>
+                        </div>
+                        <h3 class="mt-3">Cloud Migration</h3>
+                        <p>Migrated client infrastructure to AWS, reducing costs by 30% while improving performance.</p>
+                        <p><strong>Technologies:</strong> AWS, Docker, Kubernetes</p>
+                        <a href="#" class="btn btn-warning btn-sm">View Case Study</a>
+                    </div>
+                </div>
+                
+                <div class="col-md-4 mb-4 reveal portfolio-item mobile">
+                    <div class="holographic-card">
+                        <img src="https://images.pexels.com/photos/3184325/pexels-photo-3184325.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" class="img-fluid mb-3 rounded" alt="Mobile App">
+                        <div class="portfolio-tags">
+                            <span class="badge badge-warning mr-2">Mobile</span>
+                            <span class="badge badge-info">Flutter</span>
+                        </div>
+                        <h3 class="mt-3">Mobile App Development</h3>
+                        <p>Developed a cross-platform mobile app using Flutter that reached 100k downloads in first month.</p>
+                        <p><strong>Technologies:</strong> Flutter, Firebase</p>
+                        <a href="#" class="btn btn-warning btn-sm">View Case Study</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-4 reveal">
+                <a href="#" class="btn btn-outline-light">View All Projects</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing">
+        <div class="container">
+            <div class="text-center mb-5 reveal">
+                <h2 class="section-title">Our Pricing</h2>
+                <p class="lead">Flexible plans to suit your business needs</p>
+            </div>
+            
+            <div class="row">
+                <div class="col-md-4 mb-4 reveal">
+                    <div class="pricing-card h-100">
+                        <div class="pricing-header">
+                            <h4 class="pricing-title">Starter</h4>
+                            <div class="pricing-price">$999</div>
+                            <div class="pricing-period">per month</div>
+                        </div>
+                        <ul class="pricing-features">
+                            <li>Basic Website Development</li>
+                            <li>5 Pages</li>
+                            <li>Responsive Design</li>
+                            <li>Basic SEO</li>
+                            <li>Email Support</li>
+                        </ul>
+                        <div class="text-center p-3">
+                            <a href="#contact" class="btn btn-warning">Get Started</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4 mb-4 reveal">
+                    <div class="pricing-card h-100">
+                        <div class="pricing-header">
+                            <h4 class="pricing-title">Professional</h4>
+                            <div class="pricing-price">$2,499</div>
+                            <div class="pricing-period">per month</div>
+                        </div>
+                        <ul class="pricing-features">
+                            <li>Custom Web Application</li>
+                            <li>Up to 15 Pages</li>
+                            <li>Advanced Features</li>
+                            <li>SEO Optimization</li>
+                            <li>Priority Support</li>
+                        </ul>
+                        <div class="text-center p-3">
+                            <a href="#contact" class="btn btn-warning">Get Started</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4 mb-4 reveal">
+                    <div class="pricing-card h-100">
+                        <div class="pricing-header">
+                            <h4 class="pricing-title">Enterprise</h4>
+                            <div class="pricing-price">$4,999</div>
+                            <div class="pricing-period">per month</div>
+                        </div>
+                        <ul class="pricing-features">
+                            <li>Full Custom Solution</li>
+                            <li>Unlimited Pages</li>
+                            <li>Advanced Analytics</li>
+                            <li>Premium Support</li>
+                            <li>Dedicated Account Manager</li>
+                        </ul>
+                        <div class="text-center p-3">
+                            <a href="#contact" class="btn btn-warning">Get Started</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-4 reveal">
+                <p>Need a custom solution? <a href="#contact" class="text-warning">Contact us</a> for a tailored quote.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Statistics Section -->
+    <section id="stats" class="bg-dark">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-md-3 mb-4 reveal">
+                    <div class="holographic-card py-4">
+                        <div class="stat-number" data-count="150">0</div>
+                        <div class="stat-label">Happy Clients</div>
+                    </div>
+                </div>
+                
+                <div class="col-md-3 mb-4 reveal">
+                    <div class="holographic-card py-4">
+                        <div class="stat-number" data-count="250">0</div>
+                        <div class="stat-label">Projects Completed</div>
+                    </div>
+                </div>
+                
+                <div class="col-md-3 mb-4 reveal">
+                    <div class="holographic-card py-4">
+                        <div class="stat-number" data-count="50">0</div>
+                        <div class="stat-label">Team Members</div>
+                    </div>
+                </div>
+                
+                <div class="col-md-3 mb-4 reveal">
+                    <div class="holographic-card py-4">
+                        <div class="stat-number" data-count="99">0</div>
+                        <div class="stat-label">Success Rate</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials">
+        <div class="container">
+            <div class="text-center mb-5 reveal">
+                <h2 class="section-title">Client Testimonials</h2>
+                <p class="lead">What our clients say about our services</p>
+            </div>
+            
+            <div class="owl-carousel owl-theme testimonial-carousel">
+                <div class="item">
+                    <div class="testimonial-card">
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Client" class="testimonial-img">
+                        <div class="testimonial-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p class="mb-4">"MyITCompany transformed our digital presence. Their team delivered exceptional results on time and within budget. Highly recommended!"</p>
+                        <h5>Michael Johnson</h5>
+                        <p class="small">CEO, TechCorp</p>
+                    </div>
+                </div>
+                
+                <div class="item">
+                    <div class="testimonial-card">
+                        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Client" class="testimonial-img">
+                        <div class="testimonial-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p class="mb-4">"The mobile app they developed for us exceeded all expectations. User engagement increased by 300% in the first month."</p>
+                        <h5>Sarah Williams</h5>
+                        <p class="small">Marketing Director, RetailPlus</p>
+                    </div>
+                </div>
+                
+                <div class="item">
+                    <div class="testimonial-card">
+                        <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="Client" class="testimonial-img">
+                        <div class="testimonial-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                        <p class="mb-4">"Their cloud migration expertise saved us thousands in operational costs while improving performance. Excellent service!"</p>
+                        <h5>David Chen</h5>
+                        <p class="small">CTO, FinTech Solutions</p>
+                    </div>
+                </div>
+                
+                <div class="item">
+                    <div class="testimonial-card">
+                        <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Client" class="testimonial-img">
+                        <div class="testimonial-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p class="mb-4">"Working with MyITCompany was a game-changer for our e-commerce platform. Sales increased by 150% after the redesign."</p>
+                        <h5>Emily Rodriguez</h5>
+                        <p class="small">E-Commerce Manager, StyleHub</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section id="team" class="bg-dark">
+        <div class="container">
+            <div class="text-center mb-5 reveal">
+                <h2 class="section-title">Our Team</h2>
+                <p class="lead">Meet the experts behind our success</p>
+            </div>
+            
+            <div class="row">
+                <div class="col-md-3 col-6 mb-4 reveal">
+                    <div class="holographic-card text-center team-member">
+                        <img src="https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" class="img-fluid rounded-circle mb-3" alt="John Doe">
+                        <h4>John Doe</h4>
+                        <p class="text-accent">CEO & Founder</p>
+                        <p class="small">Visionary leader with 15+ years in IT industry.</p>
+                        <div class="social-links">
+                            <a href="#" class="text-light mx-1"><i class="fab fa-linkedin"></i></a>
+                            <a href="#" class="text-light mx-1"><i class="fab fa-twitter"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-3 col-6 mb-4 reveal">
+                    <div class="holographic-card text-center team-member">
+                        <img src="https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" class="img-fluid rounded-circle mb-3" alt="Jane Smith">
+                        <h4>Jane Smith</h4>
+                        <p class="text-accent">CTO</p>
+                        <p class="small">Expert in web development and architecture.</p>
+                        <div class="social-links">
+                            <a href="#" class="text-light mx-1"><i class="fab fa-linkedin"></i></a>
+                            <a href="#" class="text-light mx-1"><i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-3 col-6 mb-4 reveal">
+                    <div class="holographic-card text-center team-member">
+                        <img src="https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" class="img-fluid rounded-circle mb-3" alt="Bob Johnson">
+                        <h4>Bob Johnson</h4>
+                        <p class="text-accent">Lead Designer</p>
+                        <p class="small">Creates intuitive and beautiful interfaces.</p>
+                        <div class="social-links">
+                            <a href="#" class="text-light mx-1"><i class="fab fa-dribbble"></i></a>
+                            <a href="#" class="text-light mx-1"><i class="fab fa-behance"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-3 col-6 mb-4 reveal">
+                    <div class="holographic-card text-center team-member">
+                        <img src="https://images.pexels.com/photos/1036623/pexels-photo-1036623.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" class="img-fluid rounded-circle mb-3" alt="Alice Brown">
+                        <h4>Alice Brown</h4>
+                        <p class="text-accent">Project Manager</p>
+                        <p class="small">Ensures projects are delivered on time.</p>
+                        <div class="social-links">
+                            <a href="#" class="text-light mx-1"><i class="fab fa-linkedin"></i></a>
+                            <a href="#" class="text-light mx-1"><i class="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-4 reveal">
+                <a href="#contact" class="btn btn-warning">Join Our Team</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 mb-5 mb-lg-0 reveal">
+                    <h2 class="section-title">Frequently Asked Questions</h2>
+                    <p class="lead mb-4">Find answers to common questions about our services</p>
+                    <img src="https://images.pexels.com/photos/4050315/pexels-photo-4050315.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" class="img-fluid rounded" alt="FAQ">
+                </div>
+                
+                <div class="col-lg-6 reveal">
+                    <div class="faq-card">
+                        <div class="faq-header">
+                            <h5>What services do you offer?</h5>
+                            <i class="fas fa-chevron-down faq-toggle"></i>
+                        </div>
+                        <div class="faq-body">
+                            <p>We offer a comprehensive range of IT services including web development, mobile app development, cloud solutions, digital marketing, cybersecurity, and AI solutions. Our team specializes in creating custom solutions tailored to your business needs.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-card">
+                        <div class="faq-header">
+                            <h5>How long does a typical project take?</h5>
+                            <i class="fas fa-chevron-down faq-toggle"></i>
+                        </div>
+                        <div class="faq-body">
+                            <p>Project timelines vary depending on scope and complexity. A simple website might take 4-6 weeks, while a complex web application could take 3-6 months. We provide detailed timelines after our initial consultation and requirements gathering.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-card">
+                        <div class="faq-header">
+                            <h5>What is your pricing structure?</h5>
+                            <i class="fas fa-chevron-down faq-toggle"></i>
+                        </div>
+                        <div class="faq-body">
+                            <p>We offer flexible pricing options including fixed-price projects for well-defined scopes, time-and-materials for ongoing work, and monthly retainers for long-term partnerships. We'll work with you to find the most cost-effective solution for your needs.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-card">
+                        <div class="faq-header">
+                            <h5>Do you provide ongoing support?</h5>
+                            <i class="fas fa-chevron-down faq-toggle"></i>
+                        </div>
+                        <div class="faq-body">
+                            <p>Yes, we offer various support packages ranging from basic maintenance to comprehensive managed services. Our support includes updates, security patches, performance monitoring, and 24/7 emergency support for critical issues.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-card">
+                        <div class="faq-header">
+                            <h5>What technologies do you specialize in?</h5>
+                            <i class="fas fa-chevron-down faq-toggle"></i>
+                        </div>
+                        <div class="faq-body">
+                            <p>Our team works with a wide range of modern technologies including React, Angular, Node.js, Python, Flutter, AWS, Azure, Google Cloud, Docker, Kubernetes, and many more. We choose the best stack for each project's specific requirements.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section id="blog" class="bg-dark">
+        <div class="container">
+            <div class="text-center mb-5 reveal">
+                <h2 class="section-title">Latest From Our Blog</h2>
+                <p class="lead">Insights and updates from our team</p>
+            </div>
+            
+            <div class="row">
+                <div class="col-md-4 mb-4 reveal">
+                    <div class="blog-card h-100">
+                        <img src="https://images.pexels.com/photos/577585/pexels-photo-577585.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" class="blog-img" alt="Blog Post">
+                        <div class="blog-content">
+                            <div class="blog-date">June 15, 2025</div>
+                            <h4 class="blog-title">The Future of Web Development in 2025</h4>
+                            <p class="blog-excerpt">Explore the emerging trends and technologies that are shaping the future of web development this year and beyond.</p>
+                            <a href="#" class="btn btn-sm btn-outline-light">Read More</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4 mb-4 reveal">
+                    <div class="blog-card h-100">
+                        <img src="https://images.pexels.com/photos/1181244/pexels-photo-1181244.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" class="blog-img" alt="Blog Post">
+                        <div class="blog-content">
+                            <div class="blog-date">May 28, 2025</div>
+                            <h4 class="blog-title">Cloud Migration Best Practices</h4>
+                            <p class="blog-excerpt">Learn the key strategies for a successful cloud migration that minimizes downtime and maximizes ROI.</p>
+                            <a href="#" class="btn btn-sm btn-outline-light">Read More</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4 mb-4 reveal">
+                    <div class="blog-card h-100">
+                        <img src="https://images.pexels.com/photos/1181467/pexels-photo-1181467.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" class="blog-img" alt="Blog Post">
+                        <div class="blog-content">
+                            <div class="blog-date">May 10, 2025</div>
+                            <h4 class="blog-title">AI in Business: Practical Applications</h4>
+                            <p class="blog-excerpt">Discover how businesses are leveraging AI to automate processes, gain insights, and enhance customer experiences.</p>
+                            <a href="#" class="btn btn-sm btn-outline-light">Read More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-4 reveal">
+                <a href="#" class="btn btn-warning">View All Articles</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-4 mb-lg-0 reveal">
+                    <h2 class="section-title">Get In Touch</h2>
+                    <p class="lead">Ready to start your next project? Get in touch with us today!</p>
+                    
+                    <div class="contact-info mt-5">
+                        <div class="d-flex align-items-center mb-3">
+                            <i class="fas fa-envelope fa-lg mr-3 text-accent"></i>
+                            <a href="mailto:contact@myitcompany.com" class="text-light">contact@myitcompany.com</a>
+                        </div>
+                        
+                        <div class="d-flex align-items-center mb-3">
+                            <i class="fas fa-phone fa-lg mr-3 text-accent"></i>
+                            <a href="tel:+1234567890" class="text-light">(123) 456-7890</a>
+                        </div>
+                        
+                        <div class="d-flex align-items-start mb-3">
+                            <i class="fas fa-map-marker-alt fa-lg mr-3 text-accent mt-1"></i>
+                            <span class="text-light">123 Tech Street, Silicon Valley, CA 94000</span>
+                        </div>
+                    </div>
+                    
+                    <div class="social-links mt-4">
+                        <a href="#" class="btn btn-outline-light btn-circle mr-2"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="btn btn-outline-light btn-circle mr-2"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="btn btn-outline-light btn-circle mr-2"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="btn btn-outline-light btn-circle mr-2"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="btn btn-outline-light btn-circle mr-2"><i class="fab fa-github"></i></a>
+                    </div>
+                    
+                    <div class="mt-5">
+                        <h5>Business Hours</h5>
+                        <p>Monday - Friday: 9:00 AM - 6:00 PM<br>
+                        Saturday: 10:00 AM - 4:00 PM<br>
+                        Sunday: Closed</p>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6 reveal">
+                    <div class="holographic-card p-4">
+                        <h3 class="mb-4">Send Us a Message</h3>
+                        <form id="contactForm" action="https://formspree.io/f/your_form_id" method="POST">
+                            <div class="form-group">
+                                <input type="text" name="name" class="form-control bg-transparent text-light" placeholder="Your Name" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <input type="email" name="email" class="form-control bg-transparent text-light" placeholder="Your Email" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <input type="text" name="subject" class="form-control bg-transparent text-light" placeholder="Subject">
+                            </div>
+                            
+                            <div class="form-group">
+                                <select name="service" class="form-control bg-transparent text-light">
+                                    <option value="">Select Service</option>
+                                    <option>Web Development</option>
+                                    <option>Mobile App Development</option>
+                                    <option>Cloud Solutions</option>
+                                    <option>Digital Marketing</option>
+                                    <option>Other</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <textarea name="message" class="form-control bg-transparent text-light" rows="4" placeholder="Your Message" required></textarea>
+                            </div>
+                            
+                            <button type="submit" class="btn btn-warning btn-block">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <section id="map" class="bg-dark p-0">
+        <div class="container-fluid p-0">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3172.3325395304414!2d-121.88380168466722!3d37.33884737984138!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808fcb48a9e187e5%3A0x5a5a8f3a0f8f3e1d!2sSilicon%20Valley!5e0!3m2!1sen!2sus!4v1620000000000!5m2!1sen!2sus" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section id="newsletter" class="py-5">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-4 mb-lg-0 reveal">
+                    <h3 class="mb-0">Subscribe to Our Newsletter</h3>
+                    <p class="mb-0">Get the latest updates, news and offers directly to your inbox.</p>
+                </div>
+                <div class="col-lg-6 reveal">
+                    <form class="newsletter-form" action="https://formspree.io/f/your_form_id" method="POST">
+                        <div class="input-group">
+                            <input type="email" name="email" class="form-control bg-transparent text-light" placeholder="Your Email Address">
+                            <div class="input-group-append">
+                                <button class="btn btn-warning" type="submit">Subscribe</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="text-white py-4 bg-dark">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4 mb-md-0">
+                    <h5 class="mb-3">MyITCompany</h5>
+                    <p>Empowering businesses with cutting-edge IT solutions since 2015.</p>
+                    <div class="social-links mt-3">
+                        <a href="#" class="text-light mr-3"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-light mr-3"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-light mr-3"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="text-light mr-3"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                
+                <div class="col-md-2 mb-4 mb-md-0">
+                    <h5 class="mb-3">Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#about" class="text-light">About Us</a></li>
+                        <li class="mb-2"><a href="#services" class="text-light">Services</a></li>
+                        <li class="mb-2"><a href="#portfolio" class="text-light">Portfolio</a></li>
+                        <li class="mb-2"><a href="#team" class="text-light">Team</a></li>
+                        <li class="mb-2"><a href="#contact" class="text-light">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-md-3 mb-4 mb-md-0">
+                    <h5 class="mb-3">Services</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#" class="text-light">Web Development</a></li>
+                        <li class="mb-2"><a href="#" class="text-light">Cloud Solutions</a></li>
+                        <li class="mb-2"><a href="#" class="text-light">Mobile Apps</a></li>
+                        <li class="mb-2"><a href="#" class="text-light">UI/UX Design</a></li>
+                        <li class="mb-2"><a href="#" class="text-light">Digital Marketing</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-md-3">
+                    <h5 class="mb-3">Contact Info</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><i class="fas fa-map-marker-alt mr-2"></i> 123 Tech Street, Silicon Valley</li>
+                        <li class="mb-2"><i class="fas fa-phone mr-2"></i> (123) 456-7890</li>
+                        <li class="mb-2"><i class="fas fa-envelope mr-2"></i> contact@myitcompany.com</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <hr class="my-4 bg-light">
+            
+            <div class="row align-items-center">
+                <div class="col-md-6 mb-3 mb-md-0">
+                    <p class="mb-0">© 2025 MyITCompany. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-md-right">
+                    <a href="#" class="text-light mr-3">Privacy Policy</a>
+                    <a href="#" class="text-light mr-3">Terms of Service</a>
+                    <a href="#" class="text-light">Sitemap</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <div class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    
+    <script>
+        // Initialize Owl Carousel for testimonials
+        $(document).ready(function(){
+            $(".testimonial-carousel").owlCarousel({
+                loop: true,
+                margin: 20,
+                nav: false,
+                dots: true,
+                responsive: {
+                    0: {
+                        items: 1
+                    },
+                    768: {
+                        items: 2
+                    },
+                    992: {
+                        items: 3
+                    }
+                }
+            });
+            
+            // Initialize Owl Carousel for clients
+            $(".client-carousel").owlCarousel({
+                loop: true,
+                margin: 30,
+                nav: false,
+                dots: false,
+                autoplay: true,
+                autoplayTimeout: 2000,
+                responsive: {
+                    0: {
+                        items: 2
+                    },
+                    576: {
+                        items: 3
+                    },
+                    768: {
+                        items: 4
+                    },
+                    992: {
+                        items: 6
+                    }
+                }
+            });
+        });
+        
+        // Navbar scroll effect
+        $(window).scroll(function(){
+            if($(this).scrollTop() > 100) {
+                $('.navbar').addClass('scrolled');
+            } else {
+                $('.navbar').removeClass('scrolled');
+            }
+        });
+        
+        // Back to top button
+        $(window).scroll(function(){
+            if($(this).scrollTop() > 300) {
+                $('.back-to-top').addClass('active');
+            } else {
+                $('.back-to-top').removeClass('active');
+            }
+        });
+        
+        $('.back-to-top').click(function(){
+            $('html, body').animate({scrollTop: 0}, 'smooth');
+            return false;
+        });
+        
+        // FAQ accordion
+        $('.faq-header').click(function(){
+            $(this).parent().toggleClass('active');
+            $(this).next('.faq-body').slideToggle();
+        });
+        
+        // Contact form submission
+        $('#contactForm').submit(function(e){
+            e.preventDefault();
+            // Here you would typically send the form data to your server
+            alert('Thank you for your message! We will get back to you soon.');
+            this.reset();
+        });
+        
+        // Newsletter form submission
+        $('.newsletter-form').submit(function(e){
+            e.preventDefault();
+            alert('Thank you for subscribing to our newsletter!');
+            this.reset();
+        });
+        
+        // Scroll reveal animation
+        function reveal() {
+            const reveals = document.querySelectorAll('.reveal');
+            
+            for (let i = 0; i < reveals.length; i++) {
+                const windowHeight = window.innerHeight;
+                const elementTop = reveals[i].getBoundingClientRect().top;
+                const elementVisible = 150;
+                
+                if (elementTop < windowHeight - elementVisible) {
+                    reveals[i].classList.add('active');
+                } else {
+                    reveals[i].classList.remove('active');
+                }
+            }
+        }
+        
+        window.addEventListener('scroll', reveal);
+        
+        // Initialize scroll reveal on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            reveal();
+            
+            // Animate stats counting
+            const counters = document.querySelectorAll('.stat-number');
+            const speed = 200;
+            
+            counters.forEach(counter => {
+                if (counter.dataset.count) {
+                    const target = +counter.dataset.count;
+                    const count = +counter.innerText;
+                    const increment = target / speed;
+                    
+                    if (count < target) {
+                        counter.innerText = Math.ceil(count + increment);
+                        setTimeout(updateCount, 1);
+                    } else {
+                        counter.innerText = target + (counter.dataset.count === '99' ? '%' : '+');
+                    }
+                    
+                    function updateCount() {
+                        const count = +counter.innerText;
+                        const increment = target / speed;
+                        
+                        if (count < target) {
+                            counter.innerText = Math.ceil(count + increment);
+                            setTimeout(updateCount, 1);
+                        } else {
+                            counter.innerText = target + (counter.dataset.count === '99' ? '%' : '+');
+                        }
+                    }
+                }
+            });
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]:not([href="#"])').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+
+                // If the link is inside the collapsible navbar, close the navbar
+                if (this.closest('.navbar-collapse')) {
+                    $(this.closest('.navbar-collapse')).collapse('hide');
+                }
+            });
+        });
+
+        // Active link highlighting on scroll
+        const sections = document.querySelectorAll('section');
+        const navLi = document.querySelectorAll('.navbar-nav .nav-item');
+
+        window.addEventListener('scroll', ()=> {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (pageYOffset >= sectionTop - 60) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLi.forEach(li => {
+                li.classList.remove('active');
+                if (li.querySelector('a').getAttribute('href').substring(1) === current) {
+                    li.classList.add('active');
+                }
+            });
+        });
+
+        // Theme toggle
+        const themeSwitch = document.querySelector('#checkbox');
+        themeSwitch.addEventListener('change', () => {
+            document.body.classList.toggle('light-mode');
+        });
+
+        // Holographic card effect
+        const holographicCards = document.querySelectorAll('.holographic-card');
+
+        holographicCards.forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+
+                const rotateX = (y / rect.height - 0.5) * -20;
+                const rotateY = (x / rect.width - 0.5) * 20;
+
+                card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+            });
+
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0)';
+            });
+        });
+
+        // Portfolio filtering
+        const filterContainer = document.querySelector('#portfolio-filters');
+        const portfolioItems = document.querySelectorAll('.portfolio-item');
+
+        filterContainer.addEventListener('click', (e) => {
+            if (e.target.tagName === 'BUTTON') {
+                filterContainer.querySelector('.active').classList.remove('active');
+                e.target.classList.add('active');
+                const filterValue = e.target.getAttribute('data-filter');
+                portfolioItems.forEach(item => {
+                    if (item.classList.contains(filterValue.substring(1)) || filterValue === '*') {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>
