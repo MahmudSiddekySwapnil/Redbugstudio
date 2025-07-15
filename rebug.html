@@ -46,35 +46,41 @@
         }
         
         /* Navbar */
-        .bg-navbar-gradient {
-            background: linear-gradient(to right, #343A40, var(--dark-bg));
+        .navbar {
+            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
             transition: all 0.3s ease;
         }
-        
+
         .navbar.scrolled {
             background: rgba(33, 37, 41, 0.95);
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
             backdrop-filter: blur(10px);
         }
-        
+
         .navbar-brand {
             font-weight: 700;
             font-size: 1.5rem;
             display: flex;
             align-items: center;
         }
-        
+
         .navbar-brand img {
             height: 40px;
             margin-right: 10px;
         }
-        
+
         .nav-link {
             position: relative;
             padding: 8px 15px;
+            color: #fff;
+            transition: color 0.3s ease;
         }
-        
+
+        .nav-link:hover {
+            color: var(--accent-color);
+        }
+
         .nav-link::after {
             content: '';
             position: absolute;
@@ -85,11 +91,20 @@
             background-color: var(--accent-color);
             transition: width 0.3s ease;
         }
-        
+
         .nav-link:hover::after {
             width: calc(100% - 30px);
         }
-        
+
+        .navbar-toggler {
+            border: none;
+            outline: none;
+        }
+
+        .navbar-toggler-icon {
+            background-image: url('data:image/svg+xml;charset=utf8,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30"%3E%3Cpath stroke="rgba%28255, 255, 255, 0.7%29" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"/%3E%3C/svg%3E');
+        }
+
         /* Holographic Card Styles - Enhanced */
         .holographic-card {
             position: relative;
@@ -181,6 +196,8 @@
             position: relative;
             overflow: hidden;
             padding-top: 70px;
+            background: url('https://via.placeholder.com/1920x1080') no-repeat center center fixed;
+            background-size: cover;
         }
         
         #hero::before {
@@ -561,8 +578,40 @@
             background: #ffca28;
         }
         
+        /* Dark Mode Styles */
+        body.dark-mode {
+            background: linear-gradient(270deg, #212529, #343A40, #212529);
+            color: #ffffff;
+        }
+        body.dark-mode .navbar {
+            background: rgba(33, 37, 41, 0.95);
+        }
+        body.dark-mode .btn-warning {
+            background-color: #FFC107;
+            color: #212529;
+        }
+
+        /* Custom Cursor */
+        body {
+            cursor: url('https://via.placeholder.com/20x20'), auto;
+        }
+
+        /* Parallax Scrolling */
+        #hero {
+            background: url('https://via.placeholder.com/1920x1080') no-repeat center center fixed;
+            background-size: cover;
+        }
+
         /* Responsive Adjustments */
         @media (max-width: 768px) {
+            .navbar-brand img {
+                height: 30px;
+            }
+
+            .nav-link {
+                padding: 10px 0;
+            }
+
             .hero-title {
                 font-size: 2.5rem;
             }
@@ -575,10 +624,6 @@
                 padding: 3rem 0;
             }
             
-            .navbar-brand img {
-                height: 30px;
-            }
-            
             .section-title::after {
                 width: 30%;
             }
@@ -587,10 +632,10 @@
 </head>
 <body>
     <!-- Navigation Bar -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-navbar-gradient fixed-top">
+    <nav class="navbar navbar-expand-lg fixed-top">
         <div class="container">
             <a class="navbar-brand" href="#">
-                <img src="https://via.placeholder.com/40x40" alt="MyITCompany Logo">
+                <img src="https://via.placeholder.com/40x40?text=Logo" alt="MyITCompany Logo">
                 MyITCompany
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -598,6 +643,7 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ml-auto">
+                    <!-- Grouped menu items -->
                     <li class="nav-item">
                         <a class="nav-link" href="#hero">Home</a>
                     </li>
@@ -664,6 +710,10 @@
                 </div>
                 <div class="item text-center">
                     <img src="https://via.placeholder.com/150x60?text=Client+6" alt="Client 6" class="client-logo img-fluid">
+                </div>
+                <!-- Add dummy logo -->
+                <div class="item text-center">
+                    <img src="https://via.placeholder.com/150x60?text=Dummy+Logo" alt="Dummy Logo" class="client-logo img-fluid">
                 </div>
             </div>
         </div>
@@ -1587,6 +1637,11 @@
         </div>
     </footer>
 
+    <!-- Dark Mode Toggle -->
+    <div style="position: fixed; top: 10px; right: 10px; z-index: 1000;">
+        <button id="darkModeToggle" class="btn btn-sm btn-outline-light">Toggle Dark Mode</button>
+    </div>
+
     <!-- Back to Top Button -->
     <div class="back-to-top">
         <i class="fas fa-arrow-up"></i>
@@ -1639,6 +1694,7 @@
                     },
                     992: {
                         items: 6
+                   
                     }
                 }
             });
@@ -1752,6 +1808,12 @@
                     behavior: 'smooth'
                 });
             });
+        });
+        
+        // Dark Mode Toggle Script
+        const darkModeToggle = document.getElementById('darkModeToggle');
+        darkModeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
         });
     </script>
 </body>
